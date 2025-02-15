@@ -12,7 +12,7 @@ import (
 	"github.com/google/uuid"
 )
 
-const createdUsser = `-- name: CreatedUsser :one
+const createdUser = `-- name: CreatedUser :one
 INSERT INTO users(id, created_at, updated_at, name)
 VALUES(
     $1,
@@ -23,15 +23,15 @@ VALUES(
 RETURNING id, created_at, updated_at, name
 `
 
-type CreatedUsserParams struct {
+type CreatedUserParams struct {
 	ID        uuid.UUID
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	Name      string
 }
 
-func (q *Queries) CreatedUsser(ctx context.Context, arg CreatedUsserParams) (User, error) {
-	row := q.db.QueryRowContext(ctx, createdUsser,
+func (q *Queries) CreatedUser(ctx context.Context, arg CreatedUserParams) (User, error) {
+	row := q.db.QueryRowContext(ctx, createdUser,
 		arg.ID,
 		arg.CreatedAt,
 		arg.UpdatedAt,
