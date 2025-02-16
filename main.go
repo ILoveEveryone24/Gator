@@ -1,10 +1,13 @@
 package main
 
 import (
+    _ "github.com/lib/pq"
     "fmt"
     "os"
+    "database/sql"
 
     "github.com/iloveeveryone/gator/internal/config"
+    "github.com/iloveeveryone/gator/internal/database"
 )
 
 func main(){
@@ -20,7 +23,17 @@ func main(){
         os.Exit(1)
     }
 
+    db, err := sql.Open("postgres", c.Db_url)
+    if err != nil{
+        fmt.Println("Failed to load database")
+        os.Exit(1)
+    }
+    defer db.Close()
+    
+    dbQueries := database.New(db)
+
     s := state{
+        db: dbQueries,
         config: &c,
     }
 
@@ -28,6 +41,9 @@ func main(){
         commands: make(map[string]func(*state, command)error),
     }
     cmds.register("login", handlerLogin)
+    cmds.register("register", handlerRegister)
+    cmds.register("reset", handlerReset)
+    cmds.register("users", handlerUsers)
 
     cmd := command{
         name: args[1],
