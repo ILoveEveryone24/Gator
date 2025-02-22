@@ -9,14 +9,9 @@ import (
 	"github.com/iloveeveryone/gator/internal/database"
 )
 
-func handlerAddFeed(s *state, cmd command)error{
+func handlerAddFeed(s *state, cmd command, user database.User)error{
 	if len(cmd.args) < 4{
 		return fmt.Errorf("The add feed handler received too few arguments, expected arguments: feed name, url")
-	}
-
-	user, err := s.db.GetUser(context.Background(), s.config.Current_user_name)
-	if err != nil{
-		return fmt.Errorf("Failed to fetch the user: %v", err)
 	}
 
 	feed, err := s.db.CreateFeed(context.Background(), database.CreateFeedParams{

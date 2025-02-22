@@ -9,7 +9,7 @@ import (
 	"github.com/iloveeveryone/gator/internal/database"
 )
 
-func handlerFollow(s *state, cmd command)error{
+func handlerFollow(s *state, cmd command, user database.User)error{
 	if len(cmd.args) < 3{
 		return fmt.Errorf("The follow handler received no arguments, expected arguments: url")
 	}
@@ -17,11 +17,6 @@ func handlerFollow(s *state, cmd command)error{
 	feed, err := s.db.GetFeedByURL(context.Background(), cmd.args[2])
 	if err != nil{
 		return fmt.Errorf("Failed to fetch the feed: %v", err)
-	}
-
-	user, err := s.db.GetUser(context.Background(), s.config.Current_user_name)
-	if err != nil{
-		return fmt.Errorf("Failed to fetch the user: %v", err)
 	}
 
 	feedFollows, err := s.db.CreateFeedFollow(context.Background(), database.CreateFeedFollowParams{
