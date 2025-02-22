@@ -5,7 +5,7 @@ import (
     "context"
 )
 
-func handlerLogin(s *state, cmd command) error{
+func handlerLogin(s *state, cmd command)error{
     if len(cmd.args) < 3{
         return fmt.Errorf("The login handler received no arguments, expected arguments: username")
     }
