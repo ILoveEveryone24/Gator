@@ -65,31 +65,31 @@ This will create ".gatorconfig.json" file at your home directory, which will con
   ```
 - **List all added feeds:**
   ```sh
-  gator feeds
+  Gator feeds
   ```
 - **Follow a feed (must be added first):**
   ```sh
-  gator follow "<url>"
+  Gator follow "<url>"
   ```
 - **View all followed feeds:**
   ```sh
-  gator following
+  Gator following
   ```
 - **Unfollow a feed:**
   ```sh
-  gator unfollow "<url>"
+  Gator unfollow "<url>"
   ```
 
 ### Fetching & Browsing Posts
 - **Aggregate posts from followed feeds:**
   ```sh
-  gator agg <duration between requests>
+  Gator agg <duration between requests>
   ```
   ⚠️ This starts an **infinite loop** that continuously fetches posts at the specified interval. To stop, use `Ctrl + C`. Once you've collected enough posts, use the `browse` command to view them.
 
 - **Browse aggregated posts:**
   ```sh
-  gator browse <optional: number of posts>
+  Gator browse <optional: number of posts>
   ```
   If no number is specified, the default is **2** posts.
 
