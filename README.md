@@ -28,13 +28,13 @@ To install Gator, you can use the following Go command:
 Before using the application, you must initialize the database with the following command:  
 
   ```sh
-  gator init <db_url>  
+  Gator init <db_url>  
   ```
 
 For example:  
 
   ```sh
-  gator init postgres://postgres:postgres@localhost:5432/gator?sslmode=disable
+  Gator init postgres://postgres:postgres@localhost:5432/gator?sslmode=disable
   ```
 This will create ".gatorconfig.json" file at your home directory, which will contain the current user and the database url you provided.
 
@@ -43,25 +43,25 @@ This will create ".gatorconfig.json" file at your home directory, which will con
 ### User Management
 - **Register a new user:**
   ```sh
-  gator register <username>
+  Gator register <username>
   ```
 - **Log in as a registered user:**
   ```sh
-  gator login <username>
+  Gator login <username>
   ```
 - **List all registered users:**
   ```sh
-  gator users
+  Gator users
   ```
 - **Reset everything:**
   ```sh
-  gator reset
+  Gator reset
   ```
 
 ### Feed Management
 - **Add a new feed to the database:**
   ```sh
-  gator addfeed "<title>" "<url>"
+  Gator addfeed "<title>" "<url>"
   ```
 - **List all added feeds:**
   ```sh
