@@ -12,7 +12,11 @@ type Config struct{
     Current_user_name string `json:"current_user_name"`
 }
 
-func (c *Config) SetUser(username string) error{
+func (c *Config) SetDbUrl(url string){
+	c.Db_url = url
+}
+
+func (c *Config) SetUser(username string)error{
     c.Current_user_name = username
 
     homePath, err := os.UserHomeDir()
@@ -23,7 +27,7 @@ func (c *Config) SetUser(username string) error{
 
     file, err := os.Create(filePath)
     if err != nil{
-        return fmt.Errorf("Failed to open file: %v", err);
+        return fmt.Errorf("Failed to open file (remember to init first): %v", err);
     }
     defer file.Close()
 
@@ -44,7 +48,7 @@ func Read() (Config, error){
     filePath := homePath + "/.gatorconfig.json"
     file, err := os.Open(filePath)
     if err != nil{
-        return Config{}, fmt.Errorf("Failed to open file: %v", err);
+        return Config{}, fmt.Errorf("Failed to open file (remember to init first): %v", err);
     }
     defer file.Close()
 

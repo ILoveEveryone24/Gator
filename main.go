@@ -17,6 +17,27 @@ func main(){
         os.Exit(1)
     }
 
+	if args[1] == "init"{
+		if len(args) < 3{
+			fmt.Println("The init handler received no arguments, expected arguments: database_url\nFormat: postgres://username:password@localhost:5432/dbname?sslmode=disable\nExample: postgres://postgres:postgres@localhost:5432/gator?sslmode=disable")
+			os.Exit(1)
+		}
+		//FINISH THIS
+		c := config.Config{
+			Db_url: "",
+			Current_user_name: "",
+		}
+		c.SetDbUrl(args[2])
+
+		err := c.SetUser("Default_user")
+		if err != nil{
+			fmt.Printf("Failed to create a default user: %v\n", err)
+			os.Exit(1)
+		}
+		fmt.Println("Successfully initialized!")
+		os.Exit(0)
+	}
+
     c, err := config.Read()
     if err != nil{
         fmt.Println(err)

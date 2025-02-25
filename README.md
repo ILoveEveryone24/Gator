@@ -7,6 +7,19 @@ To use Gator, ensure you have the following installed on your system:
 - [Go](https://go.dev/)
 - [PostgreSQL](https://www.postgresql.org/)
 
+Before using the application, you must initialize the database with the following command:  
+
+  ```sh
+  <program> init <db_url>  
+  ```
+
+For example:  
+
+  ```sh
+  <program> init postgres://postgres:postgres@localhost:5432/gator?sslmode=disable
+  ```
+This will create ".gatorconfig.json" file at your home directory, which will contain the current user and the database url you provided.
+
 ## Usage
 
 ### User Management
