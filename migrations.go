@@ -9,7 +9,7 @@ import (
 	"github.com/pressly/goose/v3"
 )
 
-//go:embed sql/schema
+//go:embed sql/schema/*.sql
 var migrations embed.FS
 
 func runMigrations(dbURL string) error {
