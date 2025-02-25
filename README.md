@@ -14,7 +14,7 @@ Make sure to create a database called "gator" after configuring your PostgreSQL 
   ```
 (This will be automated in the near future)
 
-You will also need to "git clone" the repository and run "Gator init ..." command from the root path of the repository the first time to run all the migrations. Alternatively, you can run the migrations from the "sql/schema" directory manually or with "goose".
+You will also need to "git clone" the repository and run "go run . init ..." command from the root path of the repository the first time to run all the migrations. Alternatively, you can run the migrations from the "sql/schema" directory manually or with "goose".
 (This will be automated in the near future)
 
 ## Installation
