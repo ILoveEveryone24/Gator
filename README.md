@@ -13,6 +13,7 @@ Before using the application, you must initialize the database with the followin
   gator init <db_url>  
   ```
 
+
 For example:  
 
   ```sh
