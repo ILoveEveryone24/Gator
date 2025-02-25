@@ -22,18 +22,27 @@ func main(){
 			fmt.Println("The init handler received no arguments, expected arguments: database_url\nFormat: postgres://username:password@localhost:5432/dbname?sslmode=disable\nExample: postgres://postgres:postgres@localhost:5432/gator?sslmode=disable")
 			os.Exit(1)
 		}
-		//FINISH THIS
+
+		db_url := args[2]
+
 		c := config.Config{
 			Db_url: "",
 			Current_user_name: "",
 		}
-		c.SetDbUrl(args[2])
+		c.SetDbUrl(db_url)
 
 		err := c.SetUser("Default_user")
 		if err != nil{
 			fmt.Printf("Failed to create a default user: %v\n", err)
 			os.Exit(1)
 		}
+		
+		err = runMigrations(db_url)
+		if err != nil{
+			fmt.Printf("Failed to run migrations: %v\n", err)
+			os.Exit(1)
+		}
+
 		fmt.Println("Successfully initialized!")
 		os.Exit(0)
 	}
