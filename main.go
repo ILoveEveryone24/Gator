@@ -39,7 +39,7 @@ func main(){
 		
 		err = runMigrations(db_url)
 		if err != nil{
-			fmt.Printf("Failed to run migrations: %v\n", err)
+			fmt.Println(err)
 			os.Exit(1)
 		}
 
