@@ -7,7 +7,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/iloveeveryone/gator/internal/database"
+    "github.com/ILoveEveryone24/Gator/internal/database"
 )
 
 func handlerRegister(s *state, cmd command) error{

@@ -3,8 +3,8 @@ package main
 import (
     "fmt"
     
-    "github.com/iloveeveryone/gator/internal/config"
-    "github.com/iloveeveryone/gator/internal/database"
+    "github.com/ILoveEveryone24/Gator/internal/config"
+    "github.com/ILoveEveryone24/Gator/internal/database"
 )
 
 type state struct{

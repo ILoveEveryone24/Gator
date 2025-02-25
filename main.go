@@ -6,8 +6,8 @@ import (
     "os"
     "database/sql"
 
-    "github.com/iloveeveryone/gator/internal/config"
-    "github.com/iloveeveryone/gator/internal/database"
+    "github.com/ILoveEveryone24/Gator/internal/config"
+    "github.com/ILoveEveryone24/Gator/internal/database"
 )
 
 func main(){

@@ -1,4 +1,4 @@
-module github.com/iloveeveryone/gator
+module github.com/ILoveEveryone24/Gator
 
 go 1.23.5
 

@@ -8,7 +8,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/lib/pq"
 
-	"github.com/iloveeveryone/gator/internal/database"
+	"github.com/ILoveEveryone24/Gator/internal/database"
 )
 
 func handlerAgg(s *state, cmd command)error{
