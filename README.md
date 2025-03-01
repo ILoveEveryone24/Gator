@@ -7,20 +7,36 @@ To use Gator, ensure you have the following installed on your system:
 - [Go](https://go.dev/)
 - [PostgreSQL](https://www.postgresql.org/)
 
-**IMPORTANT:**
-Make sure to create a database called "gator" after configuring your PostgreSQL with the command:
-  ```sh
-  CREATE DATABASE gator;
-  ```
-(This will be automated in the near future)
-
-You will also need to "git clone" the repository and run "go run . init ..." command from the root path of the repository the first time to run all the migrations. Alternatively, you can run the migrations from the "sql/schema" directory manually or with "goose".
-
-(This will be automated in the near future)
-
 ## Installation
 
-To install Gator, you can use the following Go command:
+**Warning**: The following steps will **update the PostgreSQL user password** to `postgres` and **create a new database** named `gator`. Please ensure you are aware of these changes before proceeding. The alternative would be to change the `install.sh` script to the correct credentials or alter the credentials back after running the script.
+
+### To get started:
+
+1. **Pull the repository**:
+   ```bash
+   git clone https://github.com/ILoveEveryone24/Gator.git
+   ```
+
+2. **Run the `install.sh` script**:
+   Navigate to the repository's directory and execute the following:
+   ```bash
+   ./install.sh
+   ```
+
+The `install.sh` script will:
+- Update the system package lists (`apt-get update`).
+- Install PostgreSQL and PostgreSQL-contrib packages.
+- Set the PostgreSQL `postgres` user's password to `postgres`.
+- Create a new database named `gator`.
+
+### Important Notes:
+- The script will automatically **start PostgreSQL** and make the necessary changes to the database.
+- Ensure that this password change does not conflict with any existing setup.
+
+If you have any concerns or need to adjust the credentials, be sure to edit the `install.sh` script before running it.
+
+Afterwards, you can install Gator on your machine and use it anywhere with the following Go command:
 
   ```sh
   go install github.com/ILoveEveryone24/Gator@latest
